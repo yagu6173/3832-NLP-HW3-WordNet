@@ -1,0 +1,120 @@
+Problem 1:
+
+There are 82115 senses of nouns, 13767 senses of verbs, 18156 senses of adjectives, and 3621 senses of adverbs, according to WordNet.
+
+
+Problem 2:
+The pairs rank in decreasing similarity is close to as that of Miller & Charles:
+[1, 2, 3, 4, 5, 2, 7, 1, 9, 10, 11, 12, 5, 2, 15, 16, 17, 2, 12, 11, 21, 22, 21, 21, 10, 21, 10, 12, 29, 30]
+
+
+Problem 3:
+1) There are 790 nouns that are more common in plural form than singular form.
+2) The word "that" has 17 distinct tags, the greatest number of distinct tags. However, only a few of them can be looked up from nltk.help.brown_tagset(). They are
+CS: conjunction, subordinating
+DT: determiner/pronoun, singular
+QL: qualifier, pre
+WPO: WH-pronoun, accusative
+WPS: WH-pronoun, nominative
+
+3) The tags nouns are most commonly found after are ('AT', 48376), ('JJ', 28407), ('IN', 17225). They are
+AT: article
+JJ: adjective
+IN: preposition
+
+
+Problem 4:
+A) No extra processing
+Naive Bayes:
+Overall Accuracy:	 0.6975
+Precision for neg:	 0.9140
+Recall for neg:		 0.4293
+F1-score for neg:	 0.5842
+Precision for pos:	 0.6319
+Recall for pos:		 0.9604
+F1-score for pos:	 0.7623
+
+Decision Tree: 
+Overall Accuracy:	 0.6200
+Precision for neg:	 0.6106
+Recall for neg:		 0.6414
+F1-score for neg:	 0.6256
+Precision for pos:	 0.6302
+Recall for pos:		 0.5990
+F1-score for pos:	 0.6142
+
+Maximum Entropy: 
+Overall Accuracy:	 0.7250
+Precision for neg:	 0.9314
+Recall for neg:		 0.4798
+F1-score for neg:	 0.6333
+Precision for pos:	 0.6544
+Recall for pos:		 0.9653
+F1-score for pos:	 0.7800
+
+Maximum Entropy performs the best in all metrics, including accuracy, precision, recall and F1.
+
+B) Stop words remove
+Naive Bayes:
+Overall Accuracy:	 0.6825
+Precision for neg:	 0.9080
+Recall for neg:		 0.3990
+F1-score for neg:	 0.5544
+Precision for pos:	 0.6198
+Recall for pos:		 0.9604
+F1-score for pos:	 0.7534
+
+Decision Tree:
+Overall Accuracy:	 0.6400
+Precision for neg:	 0.6607
+Recall for neg:		 0.5606
+F1-score for neg:	 0.6066
+Precision for pos:	 0.6250
+Recall for pos:		 0.7178
+F1-score for pos:	 0.6682
+
+
+Maximum Entropy:
+Overall Accuracy:	 0.7075
+Precision for neg:	 0.9355
+Recall for neg:		 0.4394
+F1-score for neg:	 0.5979
+Precision for pos:	 0.6384
+Recall for pos:		 0.9703
+F1-score for pos:	 0.7701
+
+The performance for Decision Tree improved for all metrics (accuracy, precision and recall), but performance dropped for Naive Bayes and Masimum Entropy.
+
+C) Add not_ after not without removing stop words
+
+Naive Bayes:
+Overall Accuracy:	 0.7000
+Precision for neg:	 0.9062
+Recall for neg:		 0.4394
+F1-score for neg:	 0.5918
+Precision for pos:	 0.6349
+Recall for pos:		 0.9554
+F1-score for pos:	 0.7628
+
+Decision Tree: 
+Overall Accuracy:	 0.6375
+Precision for neg:	 0.6568
+Recall for neg:		 0.5606
+F1-score for neg:	 0.6049
+Precision for pos:	 0.6234
+Recall for pos:		 0.7129
+F1-score for pos:	 0.6651
+
+
+Maximum Entropy: 
+Overall Accuracy:	 0.7350
+Precision for neg:	 0.9182
+Recall for neg:		 0.5101
+F1-score for neg:	 0.6558
+Precision for pos:	 0.6655
+Recall for pos:		 0.9554
+F1-score for pos:	 0.7846
+
+All three models had performance improvement compared to original ones. Naive Bayes and Maximum Entropy performed even better than removing the stop words. 
+Maximum Entropy has the greatest performance improvement. The result validates Jurafsky and Martin's idea.
+
